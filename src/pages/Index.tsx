@@ -23,7 +23,7 @@ const mockMatches: Match[] = [
     awayTeam: 'АКМ',
     homeScore: 1,
     awayScore: 2,
-    date: '2024-09-25',
+    date: '2025-09-25',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
@@ -34,7 +34,7 @@ const mockMatches: Match[] = [
     awayTeam: 'Красная Звезда',
     homeScore: 3,
     awayScore: 5,
-    date: '2024-09-26',
+    date: '2025-09-26',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
@@ -45,7 +45,7 @@ const mockMatches: Match[] = [
     awayTeam: 'Алмаз',
     homeScore: 3,
     awayScore: 0,
-    date: '2024-09-27',
+    date: '2025-09-27',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
@@ -56,7 +56,7 @@ const mockMatches: Match[] = [
     awayTeam: 'СКА',
     homeScore: 1,
     awayScore: 0,
-    date: '2024-09-28',
+    date: '2025-09-28',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
@@ -67,7 +67,7 @@ const mockMatches: Match[] = [
     awayTeam: 'Тюменский Легион',
     homeScore: 3,
     awayScore: 0,
-    date: '2024-09-30',
+    date: '2025-09-30',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
@@ -78,7 +78,7 @@ const mockMatches: Match[] = [
     awayTeam: 'Стальные Лисы',
     homeScore: 3,
     awayScore: 0,
-    date: '2024-10-02',
+    date: '2025-10-02',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed',
@@ -90,7 +90,7 @@ const mockMatches: Match[] = [
     awayTeam: 'Кузнецкие Медведи',
     homeScore: 3,
     awayScore: 0,
-    date: '2024-10-04',
+    date: '2025-10-04',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed',
@@ -102,7 +102,7 @@ const mockMatches: Match[] = [
     awayTeam: 'Чайка',
     homeScore: 3,
     awayScore: 0,
-    date: '2024-10-07',
+    date: '2025-10-07',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
@@ -113,7 +113,7 @@ const mockMatches: Match[] = [
     awayTeam: 'Динамо Шинник',
     homeScore: 1,
     awayScore: 2,
-    date: '2024-10-10',
+    date: '2025-10-10',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed',
@@ -123,7 +123,7 @@ const mockMatches: Match[] = [
     id: 10,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Мамонты Югры',
-    date: '2024-10-18',
+    date: '2025-10-18',
     time: '14:00',
     venue: 'Арена "Сибирь"',
     status: 'upcoming'
@@ -132,7 +132,7 @@ const mockMatches: Match[] = [
     id: 11,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Омские Ястребы',
-    date: '2024-10-18',
+    date: '2025-10-18',
     time: '18:30',
     venue: 'Арена "Сибирь"',
     status: 'upcoming'
@@ -141,7 +141,7 @@ const mockMatches: Match[] = [
     id: 12,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'МХК Спартак',
-    date: '2024-10-21',
+    date: '2025-10-21',
     time: '16:00',
     venue: 'Арена "Сибирь"',
     status: 'upcoming'
@@ -150,7 +150,7 @@ const mockMatches: Match[] = [
     id: 13,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Белые Медведи',
-    date: '2024-10-22',
+    date: '2025-10-22',
     time: '16:30',
     venue: 'Арена "Сибирь"',
     status: 'upcoming'
@@ -159,7 +159,7 @@ const mockMatches: Match[] = [
     id: 14,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Толпар',
-    date: '2024-10-26',
+    date: '2025-10-26',
     time: '18:30',
     venue: 'Арена "Сибирь"',
     status: 'upcoming'
@@ -168,7 +168,7 @@ const mockMatches: Match[] = [
     id: 15,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Динамо СПБ',
-    date: '2024-10-28',
+    date: '2025-10-28',
     time: '17:30',
     venue: 'Арена "Сибирь"',
     status: 'upcoming'
@@ -177,7 +177,7 @@ const mockMatches: Match[] = [
     id: 16,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Крылья Советов',
-    date: '2024-10-30',
+    date: '2025-10-30',
     time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'upcoming'
@@ -488,21 +488,36 @@ export default function Index() {
         {activeSection === 'team' && (
           <div className="container mx-auto px-4 animate-fade-in">
             <h2 className="text-4xl font-bold text-white mb-8">Состав команды</h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
               {[
-                { name: 'Алексей Морозов', number: 17, position: 'Нападающий' },
-                { name: 'Дмитрий Волков', number: 1, position: 'Вратарь' },
-                { name: 'Иван Соколов', number: 5, position: 'Защитник' }
+                { name: 'hellebuck', number: 12, position: 'Вратарь', role: 'C' },
+                { name: 'Nykroy', number: 86, position: 'Нападающий', role: 'C' },
+                { name: 'MarcussGogolev', number: 17, position: 'Защитник', role: 'A' },
+                { name: 'Лысый', number: 20, position: 'Нападающий', role: 'A' },
+                { name: 'Celibrini', number: 71, position: 'Нападающий' },
+                { name: 'FishyXXL', number: 74, position: 'Защитник' },
+                { name: 'SigmaKriper', number: 79, position: 'Нападающий' },
+                { name: 'TKACHEV', number: 90, position: 'Защитник', loan: 'В аренде СКА-1946' },
+                { name: 'Dangel', number: 91, position: 'Защитник', loan: 'В аренде СКА-1946' },
+                { name: 'Galimov', number: 95, position: 'Нападающий', loan: 'В аренде Локо' }
               ].map((player) => (
                 <Card
                   key={player.number}
                   className="p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 relative">
                     <span className="text-3xl font-bold text-white">{player.number}</span>
+                    {player.role && (
+                      <span className="absolute -top-1 -right-1 text-red-600 font-bold text-sm bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-md">
+                        {player.role}
+                      </span>
+                    )}
                   </div>
                   <h4 className="font-bold text-xl mb-1">{player.name}</h4>
-                  <p className="text-muted-foreground">{player.position}</p>
+                  <p className="text-muted-foreground mb-1">{player.position}</p>
+                  {player.loan && (
+                    <p className="text-xs text-orange-600 italic mt-2">{player.loan}</p>
+                  )}
                 </Card>
               ))}
             </div>
@@ -538,25 +553,31 @@ export default function Index() {
                   </div>
                 </div>
               </Card>
-              <Card className="p-6 bg-white/95 backdrop-blur-sm">
+              <Card 
+                className="p-6 bg-white/95 backdrop-blur-sm cursor-pointer hover:shadow-xl transition-all"
+                onClick={() => window.open('https://t.me/sibsniper', '_blank')}
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Icon name="Phone" size={24} className="text-primary" />
+                    <Icon name="Send" size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-bold mb-2">Телефон</h4>
-                    <p className="text-muted-foreground">+7 (383) 123-45-67</p>
+                    <h4 className="font-bold mb-2">Telegram</h4>
+                    <p className="text-muted-foreground">t.me/sibsniper</p>
                   </div>
                 </div>
               </Card>
-              <Card className="p-6 bg-white/95 backdrop-blur-sm">
+              <Card 
+                className="p-6 bg-white/95 backdrop-blur-sm cursor-pointer hover:shadow-xl transition-all"
+                onClick={() => window.open('https://t.me/ggrzk', '_blank')}
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Icon name="Mail" size={24} className="text-primary" />
+                    <Icon name="MessageCircle" size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-bold mb-2">Email</h4>
-                    <p className="text-muted-foreground">info@snipers.hockey</p>
+                    <h4 className="font-bold mb-2">Связь с нами</h4>
+                    <p className="text-muted-foreground">t.me/ggrzk</p>
                   </div>
                 </div>
               </Card>
@@ -578,7 +599,7 @@ export default function Index() {
 
       <footer className="bg-primary/95 backdrop-blur-sm text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-white/80">© 2024 ХК Сибирские Снайперы. Молодёжная хоккейная лига.</p>
+          <p className="text-white/80">© 2025 ХК Сибирские Снайперы. Virtual Farm Hockey League.</p>
         </div>
       </footer>
     </div>
