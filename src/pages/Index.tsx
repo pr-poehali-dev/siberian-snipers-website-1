@@ -21,8 +21,8 @@ const mockMatches: Match[] = [
     id: 1,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'АКМ',
-    homeScore: 2,
-    awayScore: 1,
+    homeScore: 1,
+    awayScore: 2,
     date: '2024-09-25',
     time: '18:00',
     venue: 'Арена "Сибирь"',
@@ -32,8 +32,8 @@ const mockMatches: Match[] = [
     id: 2,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Красная Звезда',
-    homeScore: 5,
-    awayScore: 3,
+    homeScore: 3,
+    awayScore: 5,
     date: '2024-09-26',
     time: '18:00',
     venue: 'Арена "Сибирь"',
@@ -111,8 +111,8 @@ const mockMatches: Match[] = [
     id: 9,
     homeTeam: 'Сибирские Снайперы',
     awayTeam: 'Динамо Шинник',
-    homeScore: 2,
-    awayScore: 1,
+    homeScore: 1,
+    awayScore: 2,
     date: '2024-10-10',
     time: '18:00',
     venue: 'Арена "Сибирь"',
@@ -265,7 +265,7 @@ export default function Index() {
                   <Button
                     size="lg"
                     className="bg-secondary hover:bg-secondary/90 text-white"
-                    onClick={() => setActiveSection('tickets')}
+                    onClick={() => window.open('https://www.donationalerts.com/r/sibsniper', '_blank')}
                   >
                     <Icon name="Ticket" size={20} className="mr-2" />
                     Купить билеты
@@ -349,7 +349,11 @@ export default function Index() {
                       )}
                       <div className="flex items-center justify-end">
                         {match.status === 'upcoming' && (
-                          <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          <Button 
+                            size="sm" 
+                            className="bg-primary hover:bg-primary/90"
+                            onClick={() => window.open('https://www.donationalerts.com/r/sibsniper', '_blank')}
+                          >
                             Купить билет
                           </Button>
                         )}
@@ -445,7 +449,11 @@ export default function Index() {
                     )}
                     <div className="flex items-center justify-end">
                       {match.status === 'upcoming' && (
-                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                        <Button 
+                          size="sm" 
+                          className="bg-primary hover:bg-primary/90"
+                          onClick={() => window.open('https://www.donationalerts.com/r/sibsniper', '_blank')}
+                        >
                           Купить билет
                         </Button>
                       )}
