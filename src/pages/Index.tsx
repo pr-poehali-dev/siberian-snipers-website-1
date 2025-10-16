@@ -13,48 +13,174 @@ interface Match {
   time: string;
   venue: string;
   status: 'upcoming' | 'completed';
+  note?: string;
 }
 
 const mockMatches: Match[] = [
   {
     id: 1,
     homeTeam: 'Сибирские Снайперы',
-    awayTeam: 'Тайфун',
-    homeScore: 3,
-    awayScore: 2,
-    date: '2024-10-21',
-    time: '13:00',
+    awayTeam: 'АКМ',
+    homeScore: 2,
+    awayScore: 1,
+    date: '2024-09-25',
+    time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
   },
   {
     id: 2,
     homeTeam: 'Сибирские Снайперы',
-    awayTeam: 'Белые Медведи',
-    date: '2024-10-23',
-    time: '20:00',
+    awayTeam: 'Красная Звезда',
+    homeScore: 5,
+    awayScore: 3,
+    date: '2024-09-26',
+    time: '18:00',
     venue: 'Арена "Сибирь"',
-    status: 'upcoming'
+    status: 'completed'
   },
   {
     id: 3,
-    homeTeam: 'Стальные Лисы',
-    awayTeam: 'Сибирские Снайперы',
-    date: '2024-10-27',
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Алмаз',
+    homeScore: 3,
+    awayScore: 0,
+    date: '2024-09-27',
     time: '18:00',
-    venue: 'Ледовый дворец',
-    status: 'upcoming'
+    venue: 'Арена "Сибирь"',
+    status: 'completed'
   },
   {
     id: 4,
     homeTeam: 'Сибирские Снайперы',
-    awayTeam: 'Ирбис',
-    homeScore: 4,
-    awayScore: 1,
-    date: '2024-10-15',
-    time: '19:00',
+    awayTeam: 'СКА',
+    homeScore: 1,
+    awayScore: 0,
+    date: '2024-09-28',
+    time: '18:00',
     venue: 'Арена "Сибирь"',
     status: 'completed'
+  },
+  {
+    id: 5,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Тюменский Легион',
+    homeScore: 3,
+    awayScore: 0,
+    date: '2024-09-30',
+    time: '18:00',
+    venue: 'Арена "Сибирь"',
+    status: 'completed'
+  },
+  {
+    id: 6,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Стальные Лисы',
+    homeScore: 3,
+    awayScore: 0,
+    date: '2024-10-02',
+    time: '18:00',
+    venue: 'Арена "Сибирь"',
+    status: 'completed',
+    note: 'Техническое поражение у соперника'
+  },
+  {
+    id: 7,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Кузнецкие Медведи',
+    homeScore: 3,
+    awayScore: 0,
+    date: '2024-10-04',
+    time: '18:00',
+    venue: 'Арена "Сибирь"',
+    status: 'completed',
+    note: 'Техническое поражение у соперника'
+  },
+  {
+    id: 8,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Чайка',
+    homeScore: 3,
+    awayScore: 0,
+    date: '2024-10-07',
+    time: '18:00',
+    venue: 'Арена "Сибирь"',
+    status: 'completed'
+  },
+  {
+    id: 9,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Динамо Шинник',
+    homeScore: 2,
+    awayScore: 1,
+    date: '2024-10-10',
+    time: '18:00',
+    venue: 'Арена "Сибирь"',
+    status: 'completed',
+    note: 'Проигрыш по буллитам'
+  },
+  {
+    id: 10,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Мамонты Югры',
+    date: '2024-10-18',
+    time: '14:00',
+    venue: 'Арена "Сибирь"',
+    status: 'upcoming'
+  },
+  {
+    id: 11,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Омские Ястребы',
+    date: '2024-10-18',
+    time: '18:30',
+    venue: 'Арена "Сибирь"',
+    status: 'upcoming'
+  },
+  {
+    id: 12,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'МХК Спартак',
+    date: '2024-10-21',
+    time: '16:00',
+    venue: 'Арена "Сибирь"',
+    status: 'upcoming'
+  },
+  {
+    id: 13,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Белые Медведи',
+    date: '2024-10-22',
+    time: '16:30',
+    venue: 'Арена "Сибирь"',
+    status: 'upcoming'
+  },
+  {
+    id: 14,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Толпар',
+    date: '2024-10-26',
+    time: '18:30',
+    venue: 'Арена "Сибирь"',
+    status: 'upcoming'
+  },
+  {
+    id: 15,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Динамо СПБ',
+    date: '2024-10-28',
+    time: '17:30',
+    venue: 'Арена "Сибирь"',
+    status: 'upcoming'
+  },
+  {
+    id: 16,
+    homeTeam: 'Сибирские Снайперы',
+    awayTeam: 'Крылья Советов',
+    date: '2024-10-30',
+    time: '18:00',
+    venue: 'Арена "Сибирь"',
+    status: 'upcoming'
   }
 ];
 
@@ -66,33 +192,28 @@ export default function Index() {
     { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
     { id: 'news', label: 'Новости', icon: 'Newspaper' },
     { id: 'team', label: 'Команда', icon: 'Users' },
-    { id: 'gallery', label: 'Фотогалерея', icon: 'Image' },
-    { id: 'tickets', label: 'Билеты', icon: 'Ticket' },
     { id: 'partners', label: 'Партнеры', icon: 'Handshake' },
     { id: 'contacts', label: 'Контакты', icon: 'Mail' }
   ];
 
-  const galleryPhotos = [
+  const newsItems = [
     {
       id: 1,
-      url: 'https://cdn.poehali.dev/projects/3a83e102-1e02-417b-85f4-218811876041/files/1ddaa801-89ea-4c26-8b89-3aa125c045f2.jpg',
-      title: 'Решающий момент матча',
-      category: 'match',
-      date: '21 октября 2024'
+      title: 'Сибирским снайперам исполняется 1 месяц!',
+      text: 'Поздравляем команду с первым месяцем работы! За это время команда показала отличные результаты и заслужила признание болельщиков.',
+      date: '15 октября 2024'
     },
     {
       id: 2,
-      url: 'https://cdn.poehali.dev/projects/3a83e102-1e02-417b-85f4-218811876041/files/68aabaa7-39af-4404-8c77-ae9df8eb4f6e.jpg',
-      title: 'Тренировка команды',
-      category: 'training',
-      date: '18 октября 2024'
+      title: 'Сибирские снайперы вновь выиграли в сезоне, и одержали победу над "Локомотив"',
+      text: 'Наша команда продолжает радовать болельщиков уверенными победами. Очередной успех в копилку сезона!',
+      date: '12 октября 2024'
     },
     {
       id: 3,
-      url: 'https://cdn.poehali.dev/projects/3a83e102-1e02-417b-85f4-218811876041/files/01d00f8f-b135-4381-8f47-79b2677c9053.jpg',
-      title: 'Празднование гола',
-      category: 'match',
-      date: '15 октября 2024'
+      title: 'Игроки уезжают в аренду',
+      text: 'Игроки #95 Galimov, #71 rundya, #90 Dangel уезжают в аренду. #71 и #90 в СКА-1946, #95 в Толпар! Желаем успехов!',
+      date: '14 октября 2024'
     }
   ];
 
@@ -218,21 +339,26 @@ export default function Index() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t">
+                    <div className="pt-4 border-t space-y-2">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Icon name="MapPin" size={16} />
                         <span>{match.venue}</span>
                       </div>
-                      {match.status === 'upcoming' && (
-                        <Button size="sm" className="bg-primary hover:bg-primary/90">
-                          Купить билет
-                        </Button>
+                      {match.note && (
+                        <p className="text-xs text-muted-foreground italic">{match.note}</p>
                       )}
-                      {match.status === 'completed' && (
-                        <span className="text-xs font-semibold text-secondary px-3 py-1 bg-secondary/10 rounded-full">
-                          Завершён
-                        </span>
-                      )}
+                      <div className="flex items-center justify-end">
+                        {match.status === 'upcoming' && (
+                          <Button size="sm" className="bg-primary hover:bg-primary/90">
+                            Купить билет
+                          </Button>
+                        )}
+                        {match.status === 'completed' && (
+                          <span className="text-xs font-semibold text-secondary px-3 py-1 bg-secondary/10 rounded-full">
+                            Завершён
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </Card>
                 ))}
@@ -244,21 +370,21 @@ export default function Index() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Trophy" size={32} className="text-primary" />
                 </div>
-                <h4 className="font-bold text-xl mb-2">12</h4>
+                <h4 className="font-bold text-xl mb-2">7</h4>
                 <p className="text-muted-foreground">Побед в сезоне</p>
               </Card>
               <Card className="p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
                 <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Users" size={32} className="text-secondary" />
                 </div>
-                <h4 className="font-bold text-xl mb-2">23</h4>
-                <p className="text-muted-foreground">Игрока в составе</p>
+                <h4 className="font-bold text-xl mb-2">10</h4>
+                <p className="text-muted-foreground">Игроков в составе</p>
               </Card>
               <Card className="p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Target" size={32} className="text-primary" />
                 </div>
-                <h4 className="font-bold text-xl mb-2">47</h4>
+                <h4 className="font-bold text-xl mb-2">24</h4>
                 <p className="text-muted-foreground">Заброшенных шайб</p>
               </Card>
             </section>
@@ -309,21 +435,26 @@ export default function Index() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t">
+                  <div className="pt-4 border-t space-y-2">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Icon name="MapPin" size={16} />
                       <span>{match.venue}</span>
                     </div>
-                    {match.status === 'upcoming' && (
-                      <Button size="sm" className="bg-primary hover:bg-primary/90">
-                        Купить билет
-                      </Button>
+                    {match.note && (
+                      <p className="text-xs text-muted-foreground italic">{match.note}</p>
                     )}
-                    {match.status === 'completed' && (
-                      <span className="text-xs font-semibold text-secondary px-3 py-1 bg-secondary/10 rounded-full">
-                        Завершён
-                      </span>
-                    )}
+                    <div className="flex items-center justify-end">
+                      {match.status === 'upcoming' && (
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          Купить билет
+                        </Button>
+                      )}
+                      {match.status === 'completed' && (
+                        <span className="text-xs font-semibold text-secondary px-3 py-1 bg-secondary/10 rounded-full">
+                          Завершён
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </Card>
               ))}
@@ -335,20 +466,13 @@ export default function Index() {
           <div className="container mx-auto px-4 animate-fade-in">
             <h2 className="text-4xl font-bold text-white mb-8">Новости клуба</h2>
             <div className="grid gap-6">
-              <Card className="p-6 bg-white/95 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold mb-3">Уверенная победа над Ирбисом!</h3>
-                <p className="text-muted-foreground mb-4">
-                  Сибирские Снайперы одержали убедительную победу со счётом 4:1. Хет-трик оформил нападающий Алексей Морозов.
-                </p>
-                <span className="text-sm text-muted-foreground">15 октября 2024</span>
-              </Card>
-              <Card className="p-6 bg-white/95 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold mb-3">Новый рекорд посещаемости</h3>
-                <p className="text-muted-foreground mb-4">
-                  На матче против Тайфуна арену посетило рекордное количество болельщиков - 5 200 человек!
-                </p>
-                <span className="text-sm text-muted-foreground">21 октября 2024</span>
-              </Card>
+              {newsItems.map((news) => (
+                <Card key={news.id} className="p-6 bg-white/95 backdrop-blur-sm">
+                  <h3 className="text-2xl font-bold mb-3">{news.title}</h3>
+                  <p className="text-muted-foreground mb-4">{news.text}</p>
+                  <span className="text-sm text-muted-foreground">{news.date}</span>
+                </Card>
+              ))}
             </div>
           </div>
         )}
@@ -377,90 +501,16 @@ export default function Index() {
           </div>
         )}
 
-        {activeSection === 'tickets' && (
-          <div className="container mx-auto px-4 animate-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-8">Билеты</h2>
-            <Card className="p-8 bg-white/95 backdrop-blur-sm max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center">Купить билет на матч</h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Выберите матч</label>
-                  <select className="w-full p-3 border rounded-lg">
-                    {mockMatches
-                      .filter((m) => m.status === 'upcoming')
-                      .map((match) => (
-                        <option key={match.id}>
-                          {match.homeTeam} - {match.awayTeam} ({new Date(match.date).toLocaleDateString('ru-RU')})
-                        </option>
-                      ))}
-                  </select>
-                </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Количество билетов</label>
-                    <input type="number" min="1" max="10" defaultValue="1" className="w-full p-3 border rounded-lg" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Сектор</label>
-                    <select className="w-full p-3 border rounded-lg">
-                      <option>Трибуна A</option>
-                      <option>Трибуна B</option>
-                      <option>VIP</option>
-                    </select>
-                  </div>
-                </div>
-                <Button className="w-full bg-primary hover:bg-primary/90" size="lg">
-                  <Icon name="ShoppingCart" size={20} className="mr-2" />
-                  Купить билеты
-                </Button>
-              </div>
-            </Card>
-          </div>
-        )}
 
-        {activeSection === 'gallery' && (
-          <div className="container mx-auto px-4 animate-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-8">Фотогалерея</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {galleryPhotos.map((photo) => (
-                <Card
-                  key={photo.id}
-                  className="overflow-hidden bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all group cursor-pointer"
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <img
-                      src={photo.url}
-                      alt={photo.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">
-                      {photo.category === 'match' ? '🏒 Матч' : '⚡ Тренировка'}
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <h4 className="font-bold text-lg mb-2">{photo.title}</h4>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Icon name="Calendar" size={14} />
-                      <span>{photo.date}</span>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
 
         {activeSection === 'partners' && (
           <div className="container mx-auto px-4 animate-fade-in">
             <h2 className="text-4xl font-bold text-white mb-8">Наши партнёры</h2>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[1, 2, 3, 4].map((i) => (
-                <Card key={i} className="p-8 bg-white/95 backdrop-blur-sm flex items-center justify-center hover:shadow-xl transition-all">
-                  <div className="w-32 h-32 bg-muted rounded-lg flex items-center justify-center">
-                    <Icon name="Building2" size={48} className="text-muted-foreground" />
-                  </div>
-                </Card>
-              ))}
+            <div className="flex justify-center">
+              <Card className="p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all max-w-md">
+                <div className="text-8xl mb-4">🏒</div>
+                <h3 className="text-2xl font-bold text-center">Фанатский VFHL</h3>
+              </Card>
             </div>
           </div>
         )}
