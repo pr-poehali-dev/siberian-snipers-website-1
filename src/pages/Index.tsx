@@ -66,9 +66,34 @@ export default function Index() {
     { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
     { id: 'news', label: 'Новости', icon: 'Newspaper' },
     { id: 'team', label: 'Команда', icon: 'Users' },
+    { id: 'gallery', label: 'Фотогалерея', icon: 'Image' },
     { id: 'tickets', label: 'Билеты', icon: 'Ticket' },
     { id: 'partners', label: 'Партнеры', icon: 'Handshake' },
     { id: 'contacts', label: 'Контакты', icon: 'Mail' }
+  ];
+
+  const galleryPhotos = [
+    {
+      id: 1,
+      url: 'https://cdn.poehali.dev/projects/3a83e102-1e02-417b-85f4-218811876041/files/1ddaa801-89ea-4c26-8b89-3aa125c045f2.jpg',
+      title: 'Решающий момент матча',
+      category: 'match',
+      date: '21 октября 2024'
+    },
+    {
+      id: 2,
+      url: 'https://cdn.poehali.dev/projects/3a83e102-1e02-417b-85f4-218811876041/files/68aabaa7-39af-4404-8c77-ae9df8eb4f6e.jpg',
+      title: 'Тренировка команды',
+      category: 'training',
+      date: '18 октября 2024'
+    },
+    {
+      id: 3,
+      url: 'https://cdn.poehali.dev/projects/3a83e102-1e02-417b-85f4-218811876041/files/01d00f8f-b135-4381-8f47-79b2677c9053.jpg',
+      title: 'Празднование гола',
+      category: 'match',
+      date: '15 октября 2024'
+    }
   ];
 
   return (
@@ -390,6 +415,38 @@ export default function Index() {
                 </Button>
               </div>
             </Card>
+          </div>
+        )}
+
+        {activeSection === 'gallery' && (
+          <div className="container mx-auto px-4 animate-fade-in">
+            <h2 className="text-4xl font-bold text-white mb-8">Фотогалерея</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {galleryPhotos.map((photo) => (
+                <Card
+                  key={photo.id}
+                  className="overflow-hidden bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all group cursor-pointer"
+                >
+                  <div className="relative aspect-video overflow-hidden">
+                    <img
+                      src={photo.url}
+                      alt={photo.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">
+                      {photo.category === 'match' ? '🏒 Матч' : '⚡ Тренировка'}
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-lg mb-2">{photo.title}</h4>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Icon name="Calendar" size={14} />
+                      <span>{photo.date}</span>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
         )}
 
