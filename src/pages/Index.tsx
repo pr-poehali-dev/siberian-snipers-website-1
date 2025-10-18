@@ -186,6 +186,7 @@ const mockMatches: Match[] = [
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Главная', icon: 'Home' },
@@ -220,17 +221,23 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-blue-700 to-secondary">
       <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">СС</span>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                <span className="text-white text-xl sm:text-2xl font-bold">СС</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-primary">Сибирские Снайперы</h1>
-                <p className="text-xs text-muted-foreground">Молодёжная хоккейная лига</p>
+                <h1 className="text-base sm:text-xl font-bold text-primary">Сибирские Снайперы</h1>
+                <p className="text-xs text-muted-foreground hidden sm:block">Молодёжная хоккейная лига</p>
               </div>
             </div>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2 hover:bg-gray-100 rounded-lg"
+            >
+              <Icon name={menuOpen ? "X" : "Menu"} size={24} className="text-primary" />
+            </button>
             <div className="hidden md:flex gap-6">
               {navItems.map((item) => (
                 <button
@@ -248,48 +255,67 @@ export default function Index() {
               ))}
             </div>
           </div>
+          {menuOpen && (
+            <div className="md:hidden mt-4 space-y-2 animate-fade-in">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveSection(item.id);
+                    setMenuOpen(false);
+                  }}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                    activeSection === item.id
+                      ? 'bg-primary text-white'
+                      : 'text-foreground hover:bg-muted'
+                  }`}
+                >
+                  <Icon name={item.icon as any} size={20} />
+                  <span className="font-medium">{item.label}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </nav>
 
-      <main className="pt-24 pb-12">
+      <main className="pt-20 sm:pt-24 pb-8 sm:pb-12">
         {activeSection === 'home' && (
-          <div className="container mx-auto px-4 space-y-12 animate-fade-in">
-            <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-blue-800 to-secondary p-12 text-white">
+          <div className="container mx-auto px-3 sm:px-4 space-y-8 sm:space-y-12 animate-fade-in">
+            <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary via-blue-800 to-secondary p-6 sm:p-12 text-white">
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
               <div className="relative z-10 max-w-3xl">
-                <h2 className="text-5xl font-bold mb-4">ХК Сибирские Снайперы</h2>
-                <p className="text-xl mb-8 text-white/90">
+                <h2 className="text-3xl sm:text-5xl font-bold mb-3 sm:mb-4">ХК Сибирские Снайперы</h2>
+                <p className="text-base sm:text-xl mb-6 sm:mb-8 text-white/90">
                   Молодые таланты хоккея из сердца Сибири. Точность, скорость, победа!
                 </p>
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Button
-                    size="lg"
-                    className="bg-secondary hover:bg-secondary/90 text-white"
+                    className="bg-secondary hover:bg-secondary/90 text-white w-full sm:w-auto"
                     onClick={() => window.open('https://www.donationalerts.com/r/sibsniper', '_blank')}
                   >
-                    <Icon name="Ticket" size={20} className="mr-2" />
+                    <Icon name="Ticket" size={18} className="mr-2" />
                     Купить билеты
                   </Button>
                   <Button
-                    size="lg"
                     variant="outline"
-                    className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    className="bg-white/10 border-white/20 text-white hover:bg-white/20 w-full sm:w-auto"
                     onClick={() => setActiveSection('schedule')}
                   >
-                    <Icon name="Calendar" size={20} className="mr-2" />
+                    <Icon name="Calendar" size={18} className="mr-2" />
                     Расписание
                   </Button>
                 </div>
               </div>
-              <div className="absolute right-8 bottom-8 flex gap-6 text-white/60">
-                <Icon name="Disc" size={64} />
-                <Icon name="Target" size={64} />
+              <div className="absolute right-4 bottom-4 sm:right-8 sm:bottom-8 flex gap-3 sm:gap-6 text-white/60">
+                <Icon name="Disc" size={40} className="sm:w-16 sm:h-16" />
+                <Icon name="Target" size={40} className="sm:w-16 sm:h-16" />
               </div>
             </section>
 
             <section>
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-3xl font-bold text-white">Календарь матчей</h3>
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">Календарь матчей</h3>
                 <Button
                   variant="outline"
                   className="bg-white/10 border-white/20 text-white hover:bg-white/20"
@@ -299,11 +325,11 @@ export default function Index() {
                   <Icon name="ArrowRight" size={18} className="ml-2" />
                 </Button>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
                 {mockMatches.slice(0, 4).map((match) => (
                   <Card
                     key={match.id}
-                    className="p-6 bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all animate-scale-in"
+                    className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all animate-scale-in"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2">
@@ -369,22 +395,22 @@ export default function Index() {
               </div>
             </section>
 
-            <section className="grid md:grid-cols-3 gap-6">
-              <Card className="p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
+            <section className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Card className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Trophy" size={32} className="text-primary" />
                 </div>
                 <h4 className="font-bold text-xl mb-2">7</h4>
                 <p className="text-muted-foreground">Побед в сезоне</p>
               </Card>
-              <Card className="p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
+              <Card className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
                 <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Users" size={32} className="text-secondary" />
                 </div>
                 <h4 className="font-bold text-xl mb-2">10</h4>
                 <p className="text-muted-foreground">Игроков в составе</p>
               </Card>
-              <Card className="p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
+              <Card className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Target" size={32} className="text-primary" />
                 </div>
@@ -396,9 +422,9 @@ export default function Index() {
         )}
 
         {activeSection === 'schedule' && (
-          <div className="container mx-auto px-4 animate-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-8">Расписание матчей</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="container mx-auto px-3 sm:px-4 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Расписание матчей</h2>
+            <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
               {mockMatches.map((match) => (
                 <Card
                   key={match.id}
@@ -471,12 +497,12 @@ export default function Index() {
         )}
 
         {activeSection === 'news' && (
-          <div className="container mx-auto px-4 animate-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-8">Новости клуба</h2>
-            <div className="grid gap-6">
+          <div className="container mx-auto px-3 sm:px-4 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Новости клуба</h2>
+            <div className="grid gap-4 sm:gap-6">
               {newsItems.map((news) => (
-                <Card key={news.id} className="p-6 bg-white/95 backdrop-blur-sm">
-                  <h3 className="text-2xl font-bold mb-3">{news.title}</h3>
+                <Card key={news.id} className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3">{news.title}</h3>
                   <p className="text-muted-foreground mb-4">{news.text}</p>
                   <span className="text-sm text-muted-foreground">{news.date}</span>
                 </Card>
@@ -486,9 +512,9 @@ export default function Index() {
         )}
 
         {activeSection === 'team' && (
-          <div className="container mx-auto px-4 animate-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-8">Состав команды</h2>
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="container mx-auto px-3 sm:px-4 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Состав команды</h2>
+            <div className="grid gap-4 sm:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {[
                 { name: 'hellebuck', number: 12, position: 'Вратарь', role: 'C' },
                 { name: 'Nykroy', number: 86, position: 'Нападающий', role: 'C' },
@@ -503,18 +529,18 @@ export default function Index() {
               ].map((player) => (
                 <Card
                   key={player.number}
-                  className="p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all"
+                  className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 relative">
-                    <span className="text-3xl font-bold text-white">{player.number}</span>
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 relative">
+                    <span className="text-2xl sm:text-3xl font-bold text-white">{player.number}</span>
                     {player.role && (
                       <span className="absolute -top-1 -right-1 text-red-600 font-bold text-sm bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-md">
                         {player.role}
                       </span>
                     )}
                   </div>
-                  <h4 className="font-bold text-xl mb-1">{player.name}</h4>
-                  <p className="text-muted-foreground mb-1">{player.position}</p>
+                  <h4 className="font-bold text-base sm:text-xl mb-1">{player.name}</h4>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-1">{player.position}</p>
                   {player.loan && (
                     <p className="text-xs text-orange-600 italic mt-2">{player.loan}</p>
                   )}
@@ -527,22 +553,22 @@ export default function Index() {
 
 
         {activeSection === 'partners' && (
-          <div className="container mx-auto px-4 animate-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-8">Наши партнёры</h2>
+          <div className="container mx-auto px-3 sm:px-4 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Наши партнёры</h2>
             <div className="flex justify-center">
-              <Card className="p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all max-w-md">
-                <div className="text-8xl mb-4">🏒</div>
-                <h3 className="text-2xl font-bold text-center">Фанатский VFHL</h3>
+              <Card className="p-6 sm:p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all max-w-md">
+                <div className="text-6xl sm:text-8xl mb-3 sm:mb-4">🏒</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-center">Фанатский VFHL</h3>
               </Card>
             </div>
           </div>
         )}
 
         {activeSection === 'contacts' && (
-          <div className="container mx-auto px-4 animate-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-8">Контакты</h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <Card className="p-6 bg-white/95 backdrop-blur-sm">
+          <div className="container mx-auto px-3 sm:px-4 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Контакты</h2>
+            <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
+              <Card className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Icon name="MapPin" size={24} className="text-primary" />
@@ -554,7 +580,7 @@ export default function Index() {
                 </div>
               </Card>
               <Card 
-                className="p-6 bg-white/95 backdrop-blur-sm cursor-pointer hover:shadow-xl transition-all"
+                className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm cursor-pointer hover:shadow-xl transition-all"
                 onClick={() => window.open('https://t.me/sibsniper', '_blank')}
               >
                 <div className="flex items-start gap-4">
@@ -568,7 +594,7 @@ export default function Index() {
                 </div>
               </Card>
               <Card 
-                className="p-6 bg-white/95 backdrop-blur-sm cursor-pointer hover:shadow-xl transition-all"
+                className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm cursor-pointer hover:shadow-xl transition-all"
                 onClick={() => window.open('https://t.me/ggrzk', '_blank')}
               >
                 <div className="flex items-start gap-4">
@@ -581,7 +607,7 @@ export default function Index() {
                   </div>
                 </div>
               </Card>
-              <Card className="p-6 bg-white/95 backdrop-blur-sm">
+              <Card className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Icon name="Share2" size={24} className="text-primary" />
