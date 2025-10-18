@@ -237,13 +237,17 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary via-blue-700 to-secondary">
+    <div className="min-h-screen bg-gradient-to-br from-primary via-blue-700 to-secondary relative">
+      <div 
+        className="fixed inset-0 bg-center bg-no-repeat bg-cover opacity-10 pointer-events-none"
+        style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/87d667b9-fed4-46d2-96bd-81d188b5ad44.png)' }}
+      />
       <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50">
         <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                <span className="text-white text-xl sm:text-2xl font-bold">СС</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center overflow-hidden bg-white">
+                <img src="https://cdn.poehali.dev/files/87d667b9-fed4-46d2-96bd-81d188b5ad44.png" alt="Логотип" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h1 className="text-base sm:text-xl font-bold text-primary">Сибирские Снайперы</h1>
@@ -420,7 +424,7 @@ export default function Index() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Trophy" size={32} className="text-primary" />
                 </div>
-                <h4 className="font-bold text-xl mb-2">7</h4>
+                <h4 className="font-bold text-xl mb-2">9</h4>
                 <p className="text-muted-foreground">Побед в сезоне</p>
               </Card>
               <Card className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm text-center hover:shadow-xl transition-all">
@@ -434,7 +438,7 @@ export default function Index() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Target" size={32} className="text-primary" />
                 </div>
-                <h4 className="font-bold text-xl mb-2">24</h4>
+                <h4 className="font-bold text-xl mb-2">31</h4>
                 <p className="text-muted-foreground">Заброшенных шайб</p>
               </Card>
             </section>
@@ -538,7 +542,7 @@ export default function Index() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Состав команды</h2>
             <div className="grid gap-4 sm:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {[
-                { name: 'hellebuck', number: 12, position: 'Вратарь', role: 'C' },
+                { name: 'hellybuck', number: 12, position: 'Вратарь', role: 'C' },
                 { name: 'Nykroy', number: 86, position: 'Нападающий', role: 'C' },
                 { name: 'MarcussGogolev', number: 17, position: 'Защитник', role: 'A' },
                 { name: 'Лысый', number: 20, position: 'Нападающий', role: 'A' },
@@ -577,13 +581,27 @@ export default function Index() {
         {activeSection === 'partners' && (
           <div className="container mx-auto px-3 sm:px-4 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Наши партнёры</h2>
-            <div className="flex justify-center">
+            <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
               <Card 
-                className="p-6 sm:p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all max-w-md cursor-pointer"
+                className="p-6 sm:p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all cursor-pointer"
                 onClick={() => window.open('https://web.telegram.org/k/#@vfhlfan', '_blank')}
               >
-                <div className="text-6xl sm:text-8xl mb-3 sm:mb-4">🏒</div>
-                <h3 className="text-xl sm:text-2xl font-bold text-center">Фанатский VFHL</h3>
+                <div className="text-6xl sm:text-7xl mb-3 sm:mb-4">🏒</div>
+                <h3 className="text-lg sm:text-xl font-bold text-center">Фанатский VFHL</h3>
+              </Card>
+              <Card 
+                className="p-6 sm:p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all cursor-pointer"
+                onClick={() => window.open('https://t.me/+WmnWSLV55Ok2MTky', '_blank')}
+              >
+                <div className="text-6xl sm:text-7xl mb-3 sm:mb-4">💻</div>
+                <h3 className="text-lg sm:text-xl font-bold text-center">VFHL</h3>
+              </Card>
+              <Card 
+                className="p-6 sm:p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all cursor-pointer"
+                onClick={() => window.open('https://t.me/VirtualPuckHockeyLeague', '_blank')}
+              >
+                <div className="text-6xl sm:text-7xl mb-3 sm:mb-4">🖥</div>
+                <h3 className="text-lg sm:text-xl font-bold text-center">VPHL</h3>
               </Card>
             </div>
           </div>
