@@ -122,20 +122,26 @@ const mockMatches: Match[] = [
   {
     id: 10,
     homeTeam: 'Сибирские Снайперы',
-    awayTeam: 'Мамонты Югры',
-    date: '2025-10-18',
-    time: '14:00',
+    awayTeam: 'Омские Ястребы',
+    homeScore: 3,
+    awayScore: 0,
+    date: '2025-10-15',
+    time: '18:30',
     venue: 'Арена "Сибирь"',
-    status: 'upcoming'
+    status: 'completed',
+    note: 'Техническое поражение у соперников'
   },
   {
     id: 11,
     homeTeam: 'Сибирские Снайперы',
-    awayTeam: 'Омские Ястребы',
-    date: '2025-10-18',
-    time: '18:30',
+    awayTeam: 'Мамонты Югры',
+    homeScore: 3,
+    awayScore: 0,
+    date: '2025-10-17',
+    time: '14:00',
     venue: 'Арена "Сибирь"',
-    status: 'upcoming'
+    status: 'completed',
+    note: 'Техническое поражение у соперников'
   },
   {
     id: 12,
@@ -200,18 +206,30 @@ export default function Index() {
   const newsItems = [
     {
       id: 1,
+      title: 'Сибирские снайперы забирают 4 очка с двух домашних игр',
+      text: 'Команда показала отличную игру и одержала две важные победы на домашней арене!',
+      date: '18 октября 2024'
+    },
+    {
+      id: 2,
+      title: 'Сибирские снайперы провели 3 товарищеских матча с СКА-1946 и выиграли 2 из них!',
+      text: 'Отличная подготовка к новому сезону! Команда показала характер и волю к победе.',
+      date: '17 октября 2024'
+    },
+    {
+      id: 3,
       title: 'Сибирским снайперам исполняется 1 месяц!',
       text: 'Поздравляем команду с первым месяцем работы! За это время команда показала отличные результаты и заслужила признание болельщиков.',
       date: '15 октября 2024'
     },
     {
-      id: 2,
+      id: 4,
       title: 'Сибирские снайперы вновь выиграли в сезоне, и одержали победу над "Локомотив"',
       text: 'Наша команда продолжает радовать болельщиков уверенными победами. Очередной успех в копилку сезона!',
       date: '12 октября 2024'
     },
     {
-      id: 3,
+      id: 5,
       title: 'Игроки уезжают в аренду',
       text: 'Игроки #95 Galimov, #71 rundya, #90 Dangel уезжают в аренду. #71 и #90 в СКА-1946, #95 в Толпар! Желаем успехов!',
       date: '14 октября 2024'
@@ -229,7 +247,7 @@ export default function Index() {
               </div>
               <div>
                 <h1 className="text-base sm:text-xl font-bold text-primary">Сибирские Снайперы</h1>
-                <p className="text-xs text-muted-foreground hidden sm:block">Молодёжная хоккейная лига</p>
+                <p className="text-xs text-muted-foreground hidden sm:block">Virtual Farm Hockey League</p>
               </div>
             </div>
             <button
@@ -326,7 +344,7 @@ export default function Index() {
                 </Button>
               </div>
               <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
-                {mockMatches.slice(0, 4).map((match) => (
+                {mockMatches.filter(m => m.status === 'completed').slice(-2).concat(mockMatches.filter(m => m.status === 'upcoming').slice(0, 2)).map((match) => (
                   <Card
                     key={match.id}
                     className="p-4 sm:p-6 bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all animate-scale-in"
@@ -371,7 +389,9 @@ export default function Index() {
                         <span>{match.venue}</span>
                       </div>
                       {match.note && (
-                        <p className="text-xs text-muted-foreground italic">{match.note}</p>
+                        <p className="text-xs italic" style={{ color: match.note.includes('Техническое поражение') ? '#ef4444' : undefined }}>
+                          {match.note}
+                        </p>
                       )}
                       <div className="flex items-center justify-end">
                         {match.status === 'upcoming' && (
@@ -471,7 +491,9 @@ export default function Index() {
                       <span>{match.venue}</span>
                     </div>
                     {match.note && (
-                      <p className="text-xs text-muted-foreground italic">{match.note}</p>
+                      <p className="text-xs italic" style={{ color: match.note.includes('Техническое поражение') ? '#ef4444' : undefined }}>
+                        {match.note}
+                      </p>
                     )}
                     <div className="flex items-center justify-end">
                       {match.status === 'upcoming' && (
@@ -556,7 +578,10 @@ export default function Index() {
           <div className="container mx-auto px-3 sm:px-4 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-8">Наши партнёры</h2>
             <div className="flex justify-center">
-              <Card className="p-6 sm:p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all max-w-md">
+              <Card 
+                className="p-6 sm:p-8 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center hover:shadow-xl transition-all max-w-md cursor-pointer"
+                onClick={() => window.open('https://web.telegram.org/k/#@vfhlfan', '_blank')}
+              >
                 <div className="text-6xl sm:text-8xl mb-3 sm:mb-4">🏒</div>
                 <h3 className="text-xl sm:text-2xl font-bold text-center">Фанатский VFHL</h3>
               </Card>
